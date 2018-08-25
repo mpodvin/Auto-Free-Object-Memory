@@ -35,3 +35,20 @@ begin
   //...
 end;
 ```
+
+You can do this too :
+
+```pascal
+var
+  List:TList;
+  Bytes:PByte;
+begin
+  List := TList.Create;
+  AutoFree(List);
+  //use it!
+
+  GetMem(Bytes, 1024*Sizeof(Byte));
+  AutoFreeMem(Bytes);
+  //use it!
+end;
+```
