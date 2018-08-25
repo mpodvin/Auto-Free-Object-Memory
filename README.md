@@ -1,6 +1,7 @@
 # Auto Free Object/Memory
 Automatic local free object/memory without memory consumption penalty
 
+Simple example
 ```pascal
 var
   SList1,SList2,SList3:TStringList;
