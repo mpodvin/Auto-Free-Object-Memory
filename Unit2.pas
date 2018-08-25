@@ -41,7 +41,8 @@ var
   List:TList;
   SList:TStringList;
   SFile:TStringList;
-  Bytes:PByte;
+  Bytes, TmpBytes:PByte;
+  TmpList,TmpList2:TList;
   i:Integer;
 begin
   List := TList.Create;
@@ -58,6 +59,21 @@ begin
 
   AutoFree(SFile, LoadFile('..\..\Unit2.pas'));
   ShowMessage(IntToStr(SFile.Count));
+
+  for i := 1 to 10 do
+  begin
+    TmpList := TList.Create;
+    AutoFree(TmpList);
+  end;
+  for i := 1 to 10 do
+  begin
+    GetMem(TmpBytes, 1024*Sizeof(Byte));
+    AutoFreeMem(TmpBytes);
+  end;
+  for i := 1 to 10 do
+  begin
+    AutoFree(TmpList2, TList.Create);
+  end;
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);

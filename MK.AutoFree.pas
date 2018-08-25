@@ -90,6 +90,7 @@ function AutoFree(AObject:TObject):TAutoFreeTmpRec;
 begin
   with Result do
   begin
+    if Assigned(Pointer(Unknown)) then Unknown._Release;
     VMT              := @_OBJECT_VMT;
     Pointer(Unknown) := @Result; //@VMT
     Ptr              := AObject;
@@ -98,19 +99,21 @@ end;
 
 function AutoFree(var AObject; ANewObject:TObject):TAutoFreeTmpRec;
 begin
-  TObject(AObject) := ANewObject;
   with Result do
   begin
+    if Assigned(Pointer(Unknown)) then Unknown._Release;
     VMT              := @_OBJECTREF_VMT;
     Pointer(Unknown) := @Result; //@VMT
     Ptr              := @AObject;
   end;
+  TObject(AObject) := ANewObject;
 end;
 
 function AutoFreeMem(AMemPtr:Pointer):TAutoFreeTmpRec;
 begin
   with Result do
   begin
+    if Assigned(Pointer(Unknown)) then Unknown._Release;
     VMT              := @_MEMORY_VMT;
     Pointer(Unknown) := @Result; //@VMT
     Ptr              := AMemPtr;
