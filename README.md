@@ -37,7 +37,7 @@ begin
 end;
 ```
 
-You can do this too :
+You can write this too :
 
 ```pascal
 var
