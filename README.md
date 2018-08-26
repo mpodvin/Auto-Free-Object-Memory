@@ -1,5 +1,6 @@
 # Auto Free Object/Memory
 Automatic local free object/memory without memory consumption penalty.
+Free Object/Memory at the exit of the function/procedure.
 
 Simple example :
 ```pascal
